@@ -6,8 +6,10 @@ function NavBar() {
     const { isAuthenticated, logout, user } = useAuth();
   return (
     <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg">
-      <Link to="/">
-        <h1 className="text-2xl font-bold">Tasks Manager</h1>
+      <Link to={
+        isAuthenticated ? "/tasks" : "/"
+      }>
+        <h1 className="text-2xl font-bold">TasksAPP</h1>
       </Link>
       <ul className="flex gap-x-2">
         {isAuthenticated ? (
@@ -22,7 +24,7 @@ function NavBar() {
             </li>
             <li>
               <Link to="/" 
-              className="bg-red-800 px-4 py-1 rounded-sm"
+              className="bg-slate-400 px-4 py-1 rounded-sm"
               onClick={() => {
                 logout();
               }}>Logout</Link>
